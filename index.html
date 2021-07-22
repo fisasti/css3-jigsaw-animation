@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jigsaw CSS animation for Frank</title>
+    <script type="text/javascript" src="main.js"></script>
+    <link href="styles.css" rel="stylesheet" type="text/css" rel='preload' />
+</head>
+<body>
+<svg id="reference" class="piece">
+		<defs>			
+			<filter id="smallShadow" filterUnits="userSpaceOnUse">
+				<feColorMatrix type="matrix" in="SourceAlpha" result="greySource"
+				               values=" 0  0  0  0  0 
+							            0  0  0  0  0 
+									    0  0  0  0  0 
+									   .6 .6 .6 .6  0"/>
+
+				<feGaussianBlur in="greySource" stdDeviation="2" result="flou"/>
+				<feOffset in="flou" dx="1" dy="1" result="Ombre"/>
+				
+				<feMerge>
+					<feMergeNode in="Ombre"/>
+					<feMergeNode in="SourceGraphic"/>
+				</feMerge>
+			</filter>
+			
+			<filter id="bigShadow" filterUnits="userSpaceOnUse">
+				<feColorMatrix type="matrix" in="SourceAlpha" result="greySource"
+				               values="  0   0   0   0   0 
+							             0   0   0   0   0 
+									     0   0   0   0   0 
+									   .65 .65 .65 .65   0"/>
+				
+				<feGaussianBlur in="greySource" stdDeviation="6" result="flou"/>
+				<feOffset in="flou" dx="3" dy="4" result="Ombre"/>
+				
+				<feMerge>
+					<feMergeNode in="Ombre"/>
+					<feMergeNode in="SourceGraphic"/>
+				</feMerge>
+			</filter>
+		</defs>
+		
+		<defs>
+			<path d="M0,0"/>
+		</defs>
+		
+		<clipPath>
+			<use xlink:href=""/>
+		</clipPath>
+
+		<g>
+			<g>
+				<foreignObject>
+					<canvas></canvas>
+				</foreignObject>
+				<use xlink:href=""/>
+			</g>
+		</g>
+	</svg>
+	<div id="zone"></div>
+</body>
+</html>
